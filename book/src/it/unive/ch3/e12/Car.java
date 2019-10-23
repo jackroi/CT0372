@@ -1,7 +1,7 @@
 package it.unive.ch3.e12;
 
 public class Car {
-    private double fuelConsumption;
+    private double fuelConsumption;     // km/L
     private double tankCapacity;
     private double currentGas;
 
@@ -33,12 +33,12 @@ public class Car {
     }
 
     public void addGas(double moreFuel) {
-        if (this.currentGas + moreFuel > this.tankCapacity) {
-            throw new RuntimeException("Too much fuel: currentGas + moreFuel > tankCapacity");
-        }
-
         if (moreFuel < 0) {
             throw new RuntimeException("moreFuel can't be negative");
+        }
+
+        if (this.currentGas + moreFuel > this.tankCapacity) {
+            throw new RuntimeException("Too much fuel: currentGas + moreFuel > tankCapacity");
         }
 
         this.currentGas += moreFuel;
