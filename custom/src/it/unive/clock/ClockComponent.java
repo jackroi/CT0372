@@ -13,16 +13,14 @@ import java.util.GregorianCalendar;
 import javax.swing.JComponent;
 
 public class ClockComponent extends JComponent {
-    private static final long serialVersionUID = 1L;
 
     /**
-     * Get a Line2D represented between a specified internal radius and a specified
-     * external radius, i.e. inside an annulus
-     *
-     * @param c     center point
-     * @param r1    internal radius
-     * @param r2    external radius
-     * @param divs  number of division of this circular sector
+     * Get a Line2D represented between a specified internal radius and a specified external radius, i.e. inside an
+     * annulus
+     * @param c center point
+     * @param r1 internal radius
+     * @param r2 external radius
+     * @param divs number of division of this circular sector
      * @param value a fraction of divs
      * @return a Line2d representation
      */
@@ -48,18 +46,16 @@ public class ClockComponent extends JComponent {
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         Calendar date = new GregorianCalendar();
-        Point2D c = new Point2D.Double((double)getWidth() / 2, (double)getHeight() / 2);    // center
-        double r = Math.min(c.getX(), c.getY());    // radius
+        Point2D c = new Point2D.Double((double)getWidth() / 2, (double)getHeight() / 2);
+        double r = Math.min(c.getX(), c.getY());
 
-        // draw circle
         g.setColor(Color.white);
         g.fill(getQuadrant(c, r));
-        g.setStroke(new BasicStroke(4.0f));     // cambia pennello
+        g.setStroke(new BasicStroke(4.0f));
         g.setColor(Color.black);
         g.draw(getQuadrant(c, r));
 
 
-        // draw tick
         g.setStroke(new BasicStroke(4.0f));
         for (int tick = 0; tick < 60; tick += 5)
             g.draw(getHand(c, 0.80 * r, 0.90 * r, 60, tick));
@@ -67,7 +63,6 @@ public class ClockComponent extends JComponent {
         for (int tick = 0; tick < 60; tick += 1)
             g.draw(getHand(c, 0.86 * r, 0.90 * r, 60, tick));
 
-        // draw lancette
         g.setStroke(new BasicStroke(4.0f));
         g.setColor(Color.blue);
         g.draw(getHand(c, 0, 0.7 * r, 60, date.get(Calendar.MINUTE)));

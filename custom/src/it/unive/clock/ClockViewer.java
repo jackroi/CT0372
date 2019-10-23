@@ -21,10 +21,6 @@ public class ClockViewer {
          *                  frame.repaint();
          *              }});
          */
-        /*
-        while(true) {        // high cpu usage
-            frame.repaint();
-        }
-        */
+        timer.start();
     }
 }
