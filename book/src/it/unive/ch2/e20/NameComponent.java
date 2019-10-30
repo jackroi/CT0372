@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class NameComponent extends JComponent {
+    private static final long serialVersionUID = 1L;
+
     private String name;
     private int padding;
 

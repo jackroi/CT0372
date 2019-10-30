@@ -2,7 +2,9 @@ package it.unive.ch9.e16;
 
 import java.awt.*;
 
-public class LabeledPoint  extends Point {
+public class LabeledPoint extends Point {
+    private static final long serialVersionUID = 1L;
+
     private String label;
     public LabeledPoint(int x, int y, String label){
         super(x,y);
