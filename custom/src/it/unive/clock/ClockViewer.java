@@ -15,12 +15,18 @@ public class ClockViewer {
         Timer timer = new Timer(500, actionEvent -> frame.repaint());
         /**
          * Same as
-         *  Timer timer = new Timer(500, new AbstractAction()
+         *  Timer timer = new Timer(500, new AbstractAction() {
          *              @Override
          *              public void actionPerformed(ActionEvent actionEvent) {
          *                  frame.repaint();
          *              }});
          */
+        /*
+        while(true) {        // high cpu usage
+            frame.repaint();
+        }
+        */
+
         timer.start();
     }
 }
