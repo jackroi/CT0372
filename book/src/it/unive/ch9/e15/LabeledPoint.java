@@ -1,7 +1,5 @@
 package it.unive.ch9.e15;
 
-import java.awt.*;
-
 public class LabeledPoint {
     private String label;
     private int x;
