@@ -9,18 +9,25 @@ public class Employee {
         this.currentSalary = currentSalary;
     }
 
-    public double getSalary(){
-        return currentSalary;
+    /**
+     * @return the employeeName
+     */
+    public String getEmployeeName() {
+        return this.employeeName;
     }
 
-    public String getName(){
-        return employeeName;
+    /**
+     * @return the currentSalary
+     */
+    public double getCurrentSalary() {
+        return this.currentSalary;
     }
 
-    public void raiseSalary(double byPercent){
-        if(byPercent < 0){
-            throw new IllegalArgumentException("byPercent < 0");
+    public void raiseSalary(double byPercent) {
+        if (byPercent < 0) {
+            throw new IllegalArgumentException("byPercent can't be negative");
         }
-        currentSalary += currentSalary * byPercent / 100;
+
+        this.currentSalary += this.currentSalary * byPercent / 100;
     }
 }

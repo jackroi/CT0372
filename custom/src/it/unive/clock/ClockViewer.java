@@ -12,15 +12,21 @@ public class ClockViewer {
         frame.add(comp);
         frame.setVisible(true);
         // a quick and dirty way to update the clock
-        Timer timer = new Timer(1000, actionEvent -> frame.repaint());
+        Timer timer = new Timer(500, actionEvent -> frame.repaint());
         /**
          * Same as
-         *  Timer timer = new Timer(500, new AbstractAction()
+         *  Timer timer = new Timer(500, new AbstractAction() {
          *              @Override
          *              public void actionPerformed(ActionEvent actionEvent) {
          *                  frame.repaint();
          *              }});
          */
+        /*
+        while(true) {        // high cpu usage
+            frame.repaint();
+        }
+        */
+
         timer.start();
-}
+    }
 }

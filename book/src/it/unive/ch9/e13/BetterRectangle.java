@@ -3,6 +3,7 @@ package it.unive.ch9.e13;
 import java.awt.*;
 
 public class BetterRectangle  extends Rectangle {
+    private static final long serialVersionUID = 1L;
 
     public BetterRectangle(int x, int y, int width, int height) {
         super.setLocation(x, y);

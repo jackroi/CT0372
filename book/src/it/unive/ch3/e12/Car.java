@@ -1,7 +1,7 @@
 package it.unive.ch3.e12;
 
 public class Car {
-    private double fuelConsumption; // km/l
+    private double fuelConsumption;     // km/L
     private double tankCapacity;
     private double currentGas;
 
@@ -11,28 +11,48 @@ public class Car {
         this.currentGas = 0;
     }
 
-    public double getTankCapacity(){
-        return tankCapacity;
+    /**
+     * @return the fuelConsumption
+     */
+    public double getFuelConsumption() {
+        return this.fuelConsumption;
     }
 
+    /**
+     * @return the tankCapacity
+     */
+    public double getTankCapacity() {
+        return this.tankCapacity;
+    }
+
+    /**
+     * @return the currentGas
+     */
     public double getCurrentGas() {
-        return currentGas;
+        return this.currentGas;
     }
 
-    public void addGas(double moreFuel){
-        if(this.currentGas + moreFuel > this.tankCapacity){
-            throw new RuntimeException("Too much fuel, currentGas + moreFuel > tankCapacity");
+    public void addGas(double moreFuel) {
+        if (moreFuel < 0) {
+            throw new RuntimeException("moreFuel can't be negative");
         }
-        if(moreFuel < 0){
-            throw new RuntimeException("What??? moreFuel < 0");
+
+        if (this.currentGas + moreFuel > this.tankCapacity) {
+            throw new RuntimeException("Too much fuel: currentGas + moreFuel > tankCapacity");
         }
+
         this.currentGas += moreFuel;
     }
-    public void drive(double kmToDo){
-        if (kmToDo / fuelConsumption < currentGas){
-            this.currentGas -= kmToDo / fuelConsumption;
-        } else{
-            throw new RuntimeException("Not enough fuel");
+
+    public void drive(double kmToDo) {
+        if (kmToDo < 0) {
+            throw new IllegalArgumentException("kmToDo can't be negative");
         }
+
+        if (kmToDo / this.fuelConsumption > currentGas) {
+            throw new RuntimeException("Not enough gas");
+        }
+
+        this.currentGas -= kmToDo / this.fuelConsumption;
     }
 }
